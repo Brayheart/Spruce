@@ -58,7 +58,6 @@ export default class Modal extends React.Component {
     this.props.onClose && this.props.onClose(e);
   };
   render() {
-    // console.log(this.props.getCustomers)
     if (!this.props.show) {
       return null;
     }

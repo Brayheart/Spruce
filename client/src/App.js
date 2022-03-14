@@ -78,7 +78,6 @@ class App extends React.Component {
             <th className='table-header'>Booking Date/Time</th>
           </tr>
           {this.state.customers.map(customer => {
-            // console.log(customer)
             return (
               <tr>
                 <td>{customer.name}</td>
