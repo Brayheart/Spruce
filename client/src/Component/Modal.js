@@ -62,8 +62,8 @@ export default class Modal extends React.Component {
       return null;
     }
     return (
-      <div  id="modal">
-        <div className="modal">
+      <div  className='modal-container'>
+        <div className='modal'>
         <h2>Create Booking</h2>
         <div className="content">
 
@@ -108,7 +108,6 @@ export default class Modal extends React.Component {
             }} className='create-bookings button'>Create Booking</button>
           </div>
         </div>
-
         </div>
         </div>
       </div>
