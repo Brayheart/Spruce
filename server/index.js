@@ -41,7 +41,7 @@ app.post("/create", (req, res) => {
 });
 
 app.get("/customers", (req, res) => {
-  db.query("SELECT * FROM Customers", (err, result) => {
+  db.query("SELECT * FROM Customers ORDER BY date ASC", (err, result) => {
     if (err) {
       console.log(err);
     } else {
@@ -69,19 +69,19 @@ app.listen(port, () => {
     });
 
     var values = [
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/14/2022', '11:11PM'],
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/17/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/15/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/14/2022', '11:11PM'],
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/22/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
+      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/02/2022', '11:11PM'],
       ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
     ];
 
