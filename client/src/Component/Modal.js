@@ -6,15 +6,16 @@ import Axios from "axios";
 export default class Modal extends React.Component {
 
   state = {
-    name: "test",
-    email: 'test',
-    address: 'test',
-    city: 'test',
-    state: 'test',
-    zip: 'test',
-    type: 'test',
-    date: 'test',
-    time: 'test'
+    name: "",
+    email: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    type: '',
+    date: '',
+    time: '',
+    validate: false
   }
 
   addCustomer = () => {
@@ -57,6 +58,20 @@ export default class Modal extends React.Component {
   onClose = e => {
     this.props.onClose && this.props.onClose(e);
   };
+
+  validate = () => {
+    if(!this.state.name || !this.state.email || !this.state.address || !this.state.type || !this.state.time || !this.state.date) {
+      this.setState({validate: true})
+    } else {
+      this.setState({
+        
+      })
+      this.onClose();
+      this.addCustomer();
+      this.props.getCustomers();
+    }
+  }
+
   render() {
     if (!this.props.show) {
       return null;
@@ -65,8 +80,8 @@ export default class Modal extends React.Component {
       <div  className='modal-container'>
         <div className='modal'>
         <h2>Create Booking</h2>
-        <div className="content">
 
+        <div className="content">
           <div>
             <div className='title'>Name</div>
             <input onChange={(event) => this.setState({name: event.target.value})} className='input-full' type="text" id="fname" name="fname" required></input>
@@ -100,13 +115,27 @@ export default class Modal extends React.Component {
           <div className='title'>Booking Time</div>
           <input onChange={(event) => this.setState({time: event.target.value})} className='input-full' type="time" id="fname" name="fname"></input>
 
-          <div>
+          {this.state.validate && <div className='validate-container'>
+            <p>Please fill in all required fields</p>
+            <div className="unorderedlist-container">
+              <ul>
+                <li>Name</li>
+                <li>Email</li>
+                <li>Address</li>
+              </ul>
+              <ul>
+                <li>Date</li>
+                <li>Type</li>
+                <li>Time</li>
+              </ul>
+              </div>
+            </div>
+          }
+
             <button onClick={() => {
-              this.onClose();
-              this.addCustomer();
-              this.props.getCustomers();
+              this.validate()
             }} className='create-bookings button'>Create Booking</button>
-          </div>
+
         </div>
         </div>
         </div>
