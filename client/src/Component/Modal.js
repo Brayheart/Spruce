@@ -64,7 +64,16 @@ export default class Modal extends React.Component {
       this.setState({validate: true})
     } else {
       this.setState({
-        
+        name: "",
+        email: '',
+        address: '',
+        city: '',
+        state: '',
+        zip: '',
+        type: '',
+        date: '',
+        time: '',
+        validate: false
       })
       this.onClose();
       this.addCustomer();
