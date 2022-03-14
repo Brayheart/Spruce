@@ -1,0 +1,104 @@
+#root {
+  background-color: #D8D8D8;
+  height: 100vh;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+td {
+    border-bottom: 1px solid #D8D8D8;
+}
+
+th, td, .bookings {
+  color: #5B5B5B;
+  padding: 10px;
+}
+
+h2 {
+  color: #5B5B5B;
+}
+
+select {
+  width: 205px;
+  height: 25px;
+}
+
+.half2 {
+  margin-left: 30px;
+}
+
+.title {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.table-container {
+  margin-left: 20px;
+  margin-right: 50px;
+}
+
+.input-full {
+  width: 200px;
+  height: 20px;
+}
+
+.input-half {
+  width: 70px;
+}
+
+.half {
+  width: 100px;
+}
+
+.nav {
+  background-color: white;
+  padding: 25px;
+}
+
+.bookings {
+  float:left;
+  padding: 20px;
+  font-size: 25px;
+}
+
+.create-bookings {
+  cursor: pointer;
+  float: right;
+  border: none;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #F29648;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+
+.svg {
+  width: 100px;
+}
+
+/* .create-bookings:focus {
+  background-color: lightblue;
+  box-shadow: none;
+  transition: 0.2s;
+} */
+
+.header-container {
+  height: 10%;
+}
+
+.table-header {
+  text-align: left;
+}
+
+.table{
+  width: 100%;
+  padding: 10px;
+}
+
+td {
+   border-spacing:none;
+   background-color: white;
+}
