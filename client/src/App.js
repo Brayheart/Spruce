@@ -3,11 +3,15 @@ import Modal from "./Component/Modal.js";
 import "./App.css";
 import Axios from "axios";
 import { ReactComponent as Svg } from './logo.svg';
+import Posts from './Component/Posts'
+import Pagination from './Component/Pagination';
 
 class App extends React.Component {
 
   state = {
     show: false,
+    currentPage: 1,
+    postsPerPage: 10,
     customers: []
   };
   showModal = e => {
@@ -44,56 +48,46 @@ class App extends React.Component {
   }
 
   render() {
+    // Get current posts
+    const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+    const currentPosts = this.state.customers.slice(indexOfFirstPost, indexOfLastPost);
+
+    // Change page
+    const paginate = pageNumber => this.setState({currentPage: pageNumber});
+
     this.sortDate()
     this.dateConvert()
     return (
       <div className="App">
+        <div className='nav'>
+          <div className='svg'><Svg/></div>
+        </div>
+          <div className='header-container'>
+            <div className='bookings'>Bookings</div>
+            <button
+              className='create-bookings'
+              onClick={e => {
+                this.showModal(e);
+              }}
+            >
+              {" "}
+              Create Booking{" "}
+            </button>
+          </div>
 
-      <div className='nav'>
-        <div className='svg'><Svg/></div>
-      </div>
-
-
-      <div className='header-container'>
-        <div className='bookings'>Bookings</div>
-        <button
-          className='create-bookings'
-          onClick={e => {
-            this.showModal(e);
-          }}
-        >
-          {" "}
-          Create Booking{" "}
-        </button>
-      </div>
-
-      <div className='table-container'>
-        <table className='table'>
-        <tbody>
-          <tr>
-            <th className='table-header'>Customer</th>
-            <th className='table-header'>Email</th>
-            <th className='table-header'>Address</th>
-            <th className='table-header'>Booking Type</th>
-            <th className='table-header'>Booking Date/Time</th>
-          </tr>
-          {this.state.customers.map(customer => {
-            return (
-              <tr>
-                <td>{customer.name}</td>
-                <td>{customer.email}</td>
-                <td>{customer.address}</td>
-                <td>{customer.type}</td>
-                <td>{customer.date + ' at ' + customer.time}</td>
-              </tr>
-            )
-          })}
-        </tbody>
-        </table>
-      </div>
-
-       <Modal  getCustomers={this.getCustomers} onClose={this.showModal} show={this.state.show}></Modal>
-      </div>
+        <Posts posts={currentPosts}  />
+        <Pagination
+          postsPerPage={this.state.postsPerPage}
+          totalPosts={this.state.customers.length}
+          paginate={paginate}
+        />
+        <Modal
+          getCustomers={this.getCustomers}
+          onClose={this.showModal}
+          show={this.state.show}>
+        </Modal>
+    </div>
     );
   }
 }

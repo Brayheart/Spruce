@@ -27,6 +27,14 @@ select {
   height: 25px;
 }
 
+a {
+  text-decoration: none;
+}
+
+.App {
+  height: 100vh;
+}
+
 .half2 {
   margin-left: 30px;
 }
@@ -80,11 +88,36 @@ select {
   width: 100px;
 }
 
-/* .create-bookings:focus {
-  background-color: lightblue;
-  box-shadow: none;
-  transition: 0.2s;
-} */
+.pagination {
+  margin-left: 40px;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: .25rem;
+}
+
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-top-left-radius: .25rem;
+  border-bottom-left-radius: .25rem;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: .5rem .75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #007bff;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.page-item:last-child .page-link {
+  border-top-right-radius: .25rem;
+  border-bottom-right-radius: .25rem;
+}
 
 .header-container {
   height: 10%;

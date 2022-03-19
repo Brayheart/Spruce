@@ -88,8 +88,10 @@ export default class Modal extends React.Component {
     return (
       <div  className='modal-container'>
         <div className='modal'>
-        <h2>Create Booking</h2>
-
+        <div className='container'>
+          <h2>Create Booking</h2>
+          <div onClick={() => this.onClose()}>X</div>
+        </div>
         <div className="content">
           <div>
             <div className='title'>Name</div>

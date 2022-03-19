@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const db = require('./database');
-
+const values= require('./seeds')
 const port = process.env.PORT || 3001
 
 app.use(cors());
@@ -51,7 +51,7 @@ app.get("/customers", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Yey, your server is running on port ${port}`);
+  console.log(`server is running on port ${port}`);
   db.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
@@ -67,23 +67,6 @@ app.listen(port, () => {
       if (err) throw err;
       console.log("Table created");
     });
-
-    var values = [
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/14/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/17/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/15/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/14/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/22/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/02/2022', '11:11PM'],
-      ['Tyler', 'tylerhbray@gmail.com', '1234 Fake Dr', 'new york', 'NY', '90382', 'dog walker', '12/12/2022', '11:11PM'],
-    ];
 
     var sql = "INSERT INTO customers (name, email, address, city, state, zip, type, date, time ) VALUES ?";
     db.query(sql, [values], function (err, result) {
